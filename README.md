@@ -1,4 +1,4 @@
-FlyingSaucer
+FlyingRubySaucer
 ============
 
 A ruby wrapper for the Flying Saucer JAVA XHTML renderer (see http://code.google.com/p/flying-saucer/).
@@ -7,7 +7,7 @@ a HTML file, converts it to PDF via Flying Saucer and returns the PDF file back 
 
 That's the whole magic.
 
-It also comes with a Rails 3.x-style renderer, so you can invoke it directly from our Rails controllers.
+It also comes with a Rails 3.x-style renderer, so you can invoke it directly from your Rails controllers.
 
 This gem is extracted from Cornerstore (www.cornerstoreapp.com). We use it in production since nearly one
 year now, without any trouble.
@@ -20,7 +20,7 @@ This gem includes version R8 of Flying Saucer, distributed under the LGPL.
 
 Example
 =======
-Using FlyingSaucer directly
+Using FlyingRubySaucer directly
 
 require 'flying_ruby_saucer'
 pdf_source = FlyingRubySaucer::Generator.string_to_pdf(html_string)
@@ -29,7 +29,7 @@ If something goes wrong, a StandardError containing the console output will be t
 
 Using Rails
 
-With rails you simple use all the respond_to_format beauty. Just tell your controller to
+With rails you simply use all the respond_to format beauty. Just tell your controller to
 respond_to :pdf for the given action.
 
 def show
@@ -37,7 +37,7 @@ def show
   @article = Article.find(params[:id])
   
   # Respond to the client. If the client requested the PDF mime-type
-  # FlyingSaucer will render the html template, convert that into PDF
+  # FlyingRubySaucer will render the html template, convert that into PDF
   # and respond with the PDF data.
   respond_with @article
 end
