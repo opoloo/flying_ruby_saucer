@@ -2,7 +2,7 @@ module FlyingRubySaucer
   module Generator
     def self.string_to_pdf(html)      
       # Set the paths and build the java class path
-      tmp_path    = Rails.root.join('tmp')
+      tmp_path    = defined?(Rails) ? Rails.root.join('tmp') : ['/tmp/']
       java_path   = File.join(File.expand_path(File.dirname(__FILE__)), "../../vendor/java").to_s.gsub(/\&/, '\\\&').gsub(/\s/, '\ ')
       class_path  = ".:#{java_path}/bin"
 

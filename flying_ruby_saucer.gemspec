@@ -1,7 +1,7 @@
 # -*- encoding: utf-8 -*-
 Gem::Specification.new do |s|
   s.name        = 'flying_ruby_saucer'
-  s.version     = '1.0.1'
+  s.version     = '1.0.2'
   s.platform    = Gem::Platform::RUBY
   s.date        = '2012-01-21'
   s.summary     = "A ruby wrapper for the JAVA-based FlyingSaucer XHTML renderer"
