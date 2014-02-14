@@ -9,8 +9,8 @@ That's the whole magic.
 
 It also comes with a Rails 3.x-style renderer, so you can invoke it directly from your Rails controllers.
 
-This gem is extracted from Cornerstore (www.cornerstoreapp.com). We use it in production since nearly one
-year now, without any trouble.
+This gem is extracted from Cornerstore (www.cornerstore.io). We used it in production nearly three
+years, without any trouble.
 
 
 Included Version of Flying Saucer
@@ -22,8 +22,10 @@ Example
 =======
 Using FlyingRubySaucer directly
 
+```ruby
 require 'flying_ruby_saucer'
 pdf_source = FlyingRubySaucer::Generator.string_to_pdf(html_string)
+```
 
 If something goes wrong, a StandardError containing the console output will be thrown.
 
@@ -32,6 +34,7 @@ Using Rails
 With rails you simply use all the respond_to format beauty. Just tell your controller to
 respond_to :pdf for the given action.
 
+```ruby
 def show
   # Get an article to display
   @article = Article.find(params[:id])
@@ -41,5 +44,4 @@ def show
   # and respond with the PDF data.
   respond_with @article
 end
-
-Copyright (c) 2012 Monkey & Company UG, released under the MIT license
+```
