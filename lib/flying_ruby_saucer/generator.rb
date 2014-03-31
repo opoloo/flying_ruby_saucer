@@ -11,7 +11,7 @@ module FlyingRubySaucer
       end
 
       # File names
-      file_name   = Digest::MD5.hexdigest(html)
+      file_name   = Digest::MD5.hexdigest(html + Time.now.to_i.to_s + Time.now.usec.to_s)
       input_file  = tmp_path.join("#{file_name}.html")
       output_file = tmp_path.join("#{file_name}.pdf")
     
