@@ -18,14 +18,21 @@ module FlyingRubySaucer
       # Write the HTML content on disk
       File.open(input_file, 'w') { |f| f << html }
 
-      # Hack together the java command and fire it
-      if output = %x[java -cp #{class_path} Xhtml2Pdf \"#{input_file}\" \"#{output_file}\"]
-        # Read the output file and parse that up to the controller
-        # to send it to the user
-        return File.read(output_file)
-      else
-        raise StandardError, output
+      # Hack together the java command and fire it. Times out after 20 seconds
+      begin
+        Timeout::timeout(20) do 
+          if output = %x[java -cp #{class_path} Xhtml2Pdf \"#{input_file}\" \"#{output_file}\"]
+            # Read the output file and parse that up to the controller
+            # to send it to the user
+            return File.read(output_file)
+          else
+            raise StandardError, output
+          end
+        end
+      rescue
+        Timeout::Error
       end
+
   
     # Make sure the files get deleted after we're
     # done, no matter what
